@@ -1,0 +1,83 @@
+@import '../variables.less';
+
+.timer-container {
+    text-align: center;
+
+    .task-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 1.5em;
+        text-align: center;
+        box-shadow: 0 0 10px darksalmon;
+        background-color: #fffdf5;
+        box-sizing: border-box;
+        border: none;
+        border-radius: @task-input-border-radius;
+        background-color: @task-input-background;
+    }
+
+    .timer-input {
+        font-size: 20vmin;
+        width: 100%;
+        padding: 10px;
+        font-family: @timer-font-family;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .time-input {
+            font-size: 20vmin;
+            margin: 0 5px;
+            width: 25vmin;
+            border: none;
+            background: none;
+            text-align: center;
+        }
+
+        span {
+            margin: 0 5px;
+        }
+    }
+
+    .timer-controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        button {
+            padding: 10px 25px;
+            margin: 5px;
+            border: @button-border;
+            border-radius: @button-border-radius;
+            background-color: @button-background;
+            cursor: pointer;
+            font-size: @sidebar-text-size;
+            letter-spacing: 2px;
+
+            &:hover {
+                background-color: @button-background-hover;
+            }
+
+            &:disabled {
+                background-color: @disabled-color;
+                cursor: default;
+            }
+        }
+    }
+}
+
+@media(max-width: 830px) {
+    .timer-container {
+        max-width: 80vw;
+    }
+}
+
+@media (max-width: 769px) {
+    .timer-container {
+        .timer {
+            font-size: 15vw;
+        }    
+    }
+}

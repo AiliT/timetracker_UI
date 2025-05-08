@@ -1,0 +1,34 @@
+@import 'variables.less';
+
+.container {
+    height: 100%;
+    color: @sidebar-background;
+}
+
+.main-content {
+    flex: 1;
+    background-image: url('/landscape-trees-with-colorful-leaves-forest-covered-fog.jpg');
+    background-size: cover;
+    background-position-y: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.hamburger-menu {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 6vw;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+}

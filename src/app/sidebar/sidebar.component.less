@@ -1,0 +1,50 @@
+@import '../variables.less';
+
+.sidebar {
+    max-width: 20vw;
+    background-color: @sidebar-background;
+    color: @sidebar-text-color;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    float: left;
+    flex-direction: column;
+    display: none;
+    height: 100%;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: auto 0;
+
+        li {
+            margin: 5vh auto;
+
+            a {
+                color: @sidebar-text-color;
+                font-size: @sidebar-text-size;
+                text-decoration: none;
+                text-align: center;
+                display: block;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.sidebar.sidebar-visible {
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+
+@media (min-width: 769px) {
+    .sidebar {
+        display: flex;
+        width: @sidebar-width;
+    }
+}

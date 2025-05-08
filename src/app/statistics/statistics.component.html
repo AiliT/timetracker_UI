@@ -1,0 +1,61 @@
+<div class="statistics-container">
+    <h1>Statistics</h1>
+
+    <div class="section">
+        <h2>Global Statistics</h2>
+        <div class="stats-grid">
+            <div class="stat-row">
+                <span class="stat-label">Total Entries:</span>
+                <span class="stat-value">{{ userStats?.entryCount || 0 }}</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Total Tasks:</span>
+                <span class="stat-value">{{ userStats?.taskCount || 0 }}</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Total Time:</span>
+                <span class="stat-value">{{ userStats?.totalTime || '00:00:00' }}</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Days Tracked:</span>
+                <span class="stat-value">{{ userStats?.totalDays || 0 }}</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Last Tracked:</span>
+                <span class="stat-value">{{ userStats?.lastTrackedDay ? userStats?.lastTrackedDay?.substring(0, 10) : 'N/A' }}</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2>Task-Specific Statistics</h2>
+        <div class="task-selector">
+            <select [(ngModel)]="selectedTaskName" (change)="onTaskSelected()">
+                <option [value]="null">Select a task</option>
+                <option *ngFor="let task of userTaskList" >
+                    {{ task }}
+                </option>
+            </select>
+        </div>
+
+        <div class="stats-grid" *ngIf="taskStats">
+            <div class="stat-row">
+                <span class="stat-label">Total Entries:</span>
+                <span class="stat-value">{{ taskStats?.entryCount }}</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Total Time:</span>
+                <span class="stat-value">{{ taskStats?.totalTime }}</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Days Tracked:</span>
+                <span class="stat-value">{{ taskStats?.totalDays }}</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Last Tracked:</span>
+                <span class="stat-value">{{ taskStats?.lastTrackedDay?.substring(0, 10) }}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="timer-container">
+    <input type="text" class="task-input" placeholder="Enter task name" list="existingTasksList" [formControl]="taskControl">
+
+    <datalist id="existingTasksList">
+        <option *ngFor="let task of userTaskList" [value]="task"></option>
+    </datalist>
+
+    <div class="timer-input">
+        <input type="text" class="time-input" [formControl]="hoursControl" />
+        <span>:</span>
+        <input type="text" class="time-input" [formControl]="minutesControl" />
+        <span>:</span>
+        <input type="text" class="time-input" [formControl]="secondsControl" />
+    </div>
+    <div class="timer-controls">
+        <button class="start-button" [disabled]="isTimerZero() || isPaused || isRunning || (taskControl.value?.length ?? 0) == 0"
+        (click)="startTimer()">Start</button>
+        <button class="stop-button" [disabled]="!isRunning && !isPaused" (click)="stopTimer()">Stop</button>
+        <button class="pause-button" [disabled]="!isRunning && !isPaused" (click)="pauseTimer()">
+            {{ isPaused ? "Resume" : "Pause" }}
+        </button>
+    </div>
+</div>
